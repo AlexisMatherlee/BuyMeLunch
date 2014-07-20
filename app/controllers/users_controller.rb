@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 	end
 
 	def message
-		@response = "testetstsetsetsetsets"
+		user =  User.all
+		@response = user.as_json 
 	end
 end
