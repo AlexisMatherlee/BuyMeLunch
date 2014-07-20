@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
-	def new
-		@response = "testetstsetsetsetsets"
-	end
+	
+  def getProfile(number)
+    testProfiles = [
+        'LOLOLOLOLOLOL',
+        'OLOLOLOLOLOLO',
+        'TROLLOLOLOLOL'
+    ]
+    return testProfiles[number]
+  end
 
 	def profile
 		id[:request.env["omniauth.auth"]]
@@ -9,12 +15,12 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@response = "testetstsetsetsetsets"
+		@response = 'testetstsetsetsetsets'
 
 	end
 
 	def location
-		@response = "testetstsetsetsetsets"
+		@response = 'testetstsetsetsetsets'
 	end
 
 	def message

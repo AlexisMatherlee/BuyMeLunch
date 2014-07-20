@@ -5,6 +5,7 @@ BuyMeLunch::Application.routes.draw do
   root :to => 'pages#index'
   match '/signup',   to: 'users#new',            via: 'get'
   match '/profile/:id' => 'users#profile',       via: 'get'
+  match '/random',     to: 'users#random',           via: 'get'
   match '/edit',     to: 'users#edit',           via: 'get'
   match '/location', to: 'users#location',       via: 'get'
   match '/message',  to: 'users#message',        via: 'get'
