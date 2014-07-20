@@ -1,5 +1,6 @@
 BuyMeLunch::Application.routes.draw do
 
+  devise_for :users
   resources :users
   root :to => 'pages#index'
   match '/signup',   to: 'users#new',            via: 'get'
