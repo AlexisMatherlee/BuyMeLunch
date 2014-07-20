@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140720094224) do
     t.string   "image",                  default: "",   null: false
     t.string   "queue_a",                default: "[]", null: false
     t.string   "queue_b",                default: "[]", null: false
+    t.string   "matches",                default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

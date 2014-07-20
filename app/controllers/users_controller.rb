@@ -42,7 +42,8 @@ def comparequeue
 
   returnstring = []
   common_elements.each {|x| returnstring.push(getProfile(x))}
-  @response = returnstring.to_json
+  user.matches = returnstring
+  @response = user.to_json
   return @response
 end
 
