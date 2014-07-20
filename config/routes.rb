@@ -4,12 +4,14 @@ BuyMeLunch::Application.routes.draw do
   resources :users
   root :to => 'pages#index'
   match '/signup',   to: 'users#new',            via: 'get'
-  match '/user/:id' => 'users#profile',       via: 'get'
+  match '/user/:id' => 'users#comparequeue',       via: 'get'
   match '/random',   to: 'users#random',         via: 'get'
   match '/edit',     to: 'users#edit',           via: 'get'
   match '/location', to: 'users#location',       via: 'get'
   match '/message',  to: 'users#message',        via: 'get'
-  #match '/addtoqueue/:id/:targetid',  to: 'users#addtoqueue',        via: 'get'
+  match '/addtoqueue_a/:id/:targetid' => 'users#addtoqueue_a',        via: 'get'
+  match '/addtoqueue_b/:id/:targetid' => 'users#addtoqueue_b',        via: 'get'
+  match '/comparequeue:id' => 'users#comparequeue',        via: 'get'
 
   #devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
