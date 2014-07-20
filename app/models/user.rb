@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
 	devise :omniauthable, :omniauth_providers => [:linkedin]
 
-
-	def persisted
-		true
+	def change_name(name)
+		update_attribute(:name, name)
 	end
+
 
 	def self.new_with_session(params, session)
 		super.tap do |user|
@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 	def self.from_omniauth(auth)
 		where(auth.slice('uid', 'provider')).first_or_create do |user|
 			user.email = auth.info.email
+			user.name = auth.info.name
+			user.headline = auth.info.headline
+			user.image = auth.info.image
 			user.encrypted_password = Devise.friendly_token[0,20]
 		end
 	end
