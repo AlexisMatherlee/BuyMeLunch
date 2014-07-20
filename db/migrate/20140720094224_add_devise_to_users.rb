@@ -7,6 +7,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       t.string :name,               null: false, default: ""
       t.string :headline,           null: false, default: ""
       t.string :image,              null: false, default: ""
+      t.string :queue,              null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token

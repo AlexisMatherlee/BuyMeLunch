@@ -1,21 +1,26 @@
 class UsersController < ApplicationController
 
 def getProfile(number)
-	testProfiles = [
-		'LOLOLOLOLOLOL',
-		'OLOLOLOLOLOLO',
-		'TROLLOLOLOLOL'
-	]
-	return testProfiles[number]
+  user =  User.all
+	return user[number-1]
 end
 
-def match
-	df
+def random
+  user =  User.all
+  @response = user.sample.as_json
 end
 
 def profile
-	id[:request.env["omniauth.auth"]]
-	@response = "requested profile #" + params[:id]
+	@response = getProfile(params[:id].to_i).as_json
+end
+
+def addtoqueue
+  user = getProfile(params[:id].to_i)
+  user.queue.push(params[:targetid].to_i)
+  user.save
+end
+
+def match
 end
 
 def edit

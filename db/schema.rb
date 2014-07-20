@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140720094224) do
     t.string   "name",                   default: "", null: false
     t.string   "headline",               default: "", null: false
     t.string   "image",                  default: "", null: false
+    t.integer  "queue",                  default: 0
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
