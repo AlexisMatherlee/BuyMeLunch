@@ -6,19 +6,37 @@ class UsersController < ApplicationController
     #                                   email:auth.info.email,
     #                                        password:Devise.friendly_token[0,20]
     # )
+    #
     @user = User.new(params[:user])
     @user.save
-    @response = 'testetstsetsetsetsets'
+    @response = @user
 	end
 
-	def profile
+  def getProfile(number)
     testProfiles = [
-        'L',
-        'O',
-        'L'
+        'LOLOLOLOLOLOL',
+        'OLOLOLOLOLOLO',
+        'TROLLOLOLOLOL'
     ]
-		@response = 'requested profile ' + testProfiles[params[:id].to_i]
-	end
+    return testProfiles[number]
+  end
+
+	def profile
+    # @profiles = User.find(:all)
+    #@profiles = User.all
+
+
+
+		@response = getProfile(params[:id].to_i)
+    #@response = 'requested profile ' + @profiles[params[:id].to_i]
+  end
+
+  def random
+    # @profiles = User.find(:all)
+
+    @response = getProfile(rand())
+    #@response = 'requested profile ' + @profiles[params[:id].to_i]
+  end
 
 	def edit
 		@response = 'testetstsetsetsetsets'
@@ -31,5 +49,10 @@ class UsersController < ApplicationController
 
 	def message
 		@response = 'testetstsetsetsetsets'
-	end
+  end
+
+  private
+  def app_params
+    params.require(:user).permit(:name, :gender, :occupation, :isActive)
+  end
 end

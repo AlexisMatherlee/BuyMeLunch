@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  # devise :omniauthable
+  devise :database_authenticatable, :registerable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :validatable
   # @user = User.from_omniauth(request.env["omniauth.auth"])
   #
   # def self.connect_to_linkedin(auth, signed_in_resource=nil)
@@ -22,5 +23,5 @@ class User < ActiveRecord::Base
   #
   #   end
   # end
-  attr_accessible :name, :location, :profession
+  #attr_accessible :name, :location, :profession
 end
