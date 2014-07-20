@@ -12,6 +12,7 @@ BuyMeLunch::Application.routes.draw do
   match '/addtoqueue_a/:id/:targetid' => 'users#addtoqueue_a',        via: 'get'
   match '/addtoqueue_b/:id/:targetid' => 'users#addtoqueue_b',        via: 'get'
   match '/comparequeue:id' => 'users#comparequeue',        via: 'get'
+  match '/resetallmatches/', to: 'users#resetallmatches',       via: 'get'
 
   #devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
