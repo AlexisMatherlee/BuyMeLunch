@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
 	devise :omniauthable, :omniauth_providers => [:linkedin]
 
-	def change_name(name)
-		update_attribute(:name, name)
-	end
-
-
 	def self.new_with_session(params, session)
 		super.tap do |user|
 			if data = session["devise.linkedin_data"] && session["devise.linkedin_data"]["extra"]["raw_info"]
