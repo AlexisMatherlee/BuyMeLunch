@@ -50,8 +50,8 @@ end
 def resetallmatches
   user =  User.all
   user.each do |thing|
-    thing.queue_a = []
-    thing.queue_b = []
+    thing.queue_a = ""
+    thing.queue_b = ""
     thing.save
   end
 
