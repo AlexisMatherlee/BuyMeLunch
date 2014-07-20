@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	devise :omniauthable
+  @user = User.from_omniauth(request.env["omniauth.auth"])
 
 	def self.connect_to_linkedin(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
