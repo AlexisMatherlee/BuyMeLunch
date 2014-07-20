@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 	end
 
 	def profile
+		id[:request.env["omniauth.auth"]]
 		@response = "requested profile #" + params[:id]
 	end
 
