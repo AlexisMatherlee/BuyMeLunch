@@ -20,7 +20,7 @@ def addtoqueue_a
   queue = JSON::parse(user.queue_a)
   queue.push(params[:targetid].to_i)
   #user.queue.push(params[:targetid].to_i)
-  user.queue_a = queue.to_json
+  user.queue_a = queue.uniq.to_json
   user.save
 end
 
@@ -29,7 +29,7 @@ def addtoqueue_b
   queue = JSON::parse(user.queue_b)
   queue.push(params[:targetid].to_i)
   #user.queue.push(params[:targetid].to_i)
-  user.queue_b = queue.to_json
+  user.queue_b = queue.uniq.to_json
   user.save
 end
 
