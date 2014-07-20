@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	end
 
 	def profile
-		@response = @id
+		@response = "requested profile #" + params[:id]
 	end
 
 	def edit

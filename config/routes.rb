@@ -3,12 +3,12 @@ BuyMeLunch::Application.routes.draw do
   resources :users
   root :to => 'pages#index'
   match '/signup',   to: 'users#new',            via: 'get'
-  match '/profile',  to: 'users#profile',        via: 'get'
+  match '/profile/:id' => 'users#profile',       via: 'get'
   match '/edit',     to: 'users#edit',           via: 'get'
   match '/location', to: 'users#location',       via: 'get'
   match '/message',  to: 'users#message',        via: 'get'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
     # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
