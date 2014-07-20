@@ -7,11 +7,11 @@ end
 
 def random
   user =  User.all
-  @response = user.sample.to_json
+  @response = user.sample.to_json.html_safe
 end
 
 def profile
-	@response = getProfile(params[:id].to_i).to_json
+	@response = getProfile(params[:id].to_i).to_json.html_safe
 
 end
 
@@ -43,7 +43,7 @@ def comparequeue
   returnstring = []
   common_elements.each {|x| returnstring.push(getProfile(x))}
   user.matches = returnstring
-  @response = user.to_json
+  @response = user.to_json.html_safe
   return @response
 end
 
@@ -60,6 +60,6 @@ end
 
 def message
 	user =  User.all
-	@response = user.to_json
+	@response = user.to_json.html_safe
 end
 end
